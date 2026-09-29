@@ -1,0 +1,18 @@
+services:
+  deepforest:
+    build: .
+    image: argus-deepforest
+    container_name: argus-deepforest
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    shm_size: "4gb"            # PyTorch dataloader workers need shared memory
+    volumes:
+      - ./:/work                             # script, CSV, tiles/, checkpoints
+      - ${ORIG_DIR}:/work/images:ro          # full-res DJI originals (set in .env)
+      - ./hf_cache:/root/.cache              # keep downloaded pretrained weights between runs
+    working_dir: /work
