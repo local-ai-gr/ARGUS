@@ -1,3 +1,0 @@
-deepforest>=1.5
-opencv-python-headless
-pandas
