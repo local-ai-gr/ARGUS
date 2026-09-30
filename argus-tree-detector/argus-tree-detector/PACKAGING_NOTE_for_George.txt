@@ -1,0 +1,10 @@
+Before sending to your colleague, add the model file to this folder, then zip it.
+On the server:
+
+    cd ~/deepforest-docker
+    scp argus_trees.ckpt <you>@<laptop>:...      # or from the laptop:
+    # PowerShell on laptop:
+    #   scp localai@192.168.1.144:~/deepforest-docker/argus_trees.ckpt "$env:USERPROFILE\Downloads\argus-tree-detector\"
+
+Then zip the whole argus-tree-detector folder (~130 MB) and share it (WeTransfer, Drive, USB).
+Delete this note before sending.
